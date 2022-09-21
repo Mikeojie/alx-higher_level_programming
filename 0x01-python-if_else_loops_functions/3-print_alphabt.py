@@ -1,4 +1,5 @@
 #!/usr/bin/python3
-for i in range(97, 97+26)
-    if i != "q" and i != "e"
-    print({}.format(chr(i)), end = " ")
+for i in range(97, 123):
+    j = chr(i)
+    if j != 'q' and j != 'e':
+        print("{}".format(j), end="")
