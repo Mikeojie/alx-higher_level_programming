@@ -1,56 +1,41 @@
 #!/usr/bin/python3
+# -*- coding: utf-8 -*-
+"""This module contains a class called Square that defines a square."""
 
 
 class Square:
-    """Square class."""
+    """This is the Square class definition."""
 
     def __init__(self, size=0):
-        """__init__ method that sets the size of square.
+        """__init__ method to initialize the size attribute.
         Args:
-            size (int): size of Square
-
+            size (int): Size of the square.
         """
-        self.size = size
+        self.__size = size
 
     def area(self):
-        """Gets the area of the Square.
-
+        """Calculate the area of the square.
         Returns:
-            Area of squre
-
+            The area of the square.
         """
-        return self.__size * self.__size
+        return self.__size ** 2
 
     @property
     def size(self):
+        """Getter method for the size attribute.
+        Returns:
+            The size of the square.
+        """
         return self.__size
 
     @size.setter
     def size(self, value):
-        """size setter  method that sets the size of square.
+        """Setter method for the size attribute.
         Args:
-            value (int): size of Square
-        Raises:
-            TypeError: If `value` is not an integer.
-            ValueError: If `value` is less than 0.
-
+            value (int): Size of the square.
         """
-        if not isinstance(value, int):
+        if isinstance(value, int) is False:
             raise TypeError("size must be an integer")
         if value < 0:
             raise ValueError("size must be >= 0")
         self.__size = value
-
-
-if __name__ == '__main__':
-    my_square = Square(89)
-    print("Area: {} for size: {}".format(my_square.area(), my_square.size))
-
-    my_square.size = 3
-    print("Area: {} for size: {}".format(my_square.area(), my_square.size))
-
-    try:
-        my_square.size = "5 feet"
-        print("Area: {} for size: {}".format(my_square.area(), my_square.size))
-    except Exception as e:
-        print(e)
